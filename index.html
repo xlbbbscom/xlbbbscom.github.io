@@ -1,115 +1,53 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
-    <title>XLBBBS</title>
-    <style>
-        html, body { background: #ff9900; font-family: 'Ubuntu'; }
-        * { box-sizing: border-box; }
-        .box { width: 450px; height: 100%; max-height: 600px; min-height: 450px; background: #ffcc66; border-radius: 20px; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); padding: 30px 50px; }
-        .box .box__description { position: absolute; top: 20px; left: 50%; transform: translateX(-50%); text-align: left; }
-        .box .box__description .box__description-container { color: #333333; width: 380px; font-size: 16px; margin: 0 auto; }
-        .box .box__description .box__description-container .box__description-title { font-size: 24px; letter-spacing: .5px; }
-        .box .box__description .box__description-container .box__description-text { color: #333333; line-height: 20px; margin-top: 20px; }
-        .box .box__description ul { list-style-type: none; font-size: 14px; font-size: 1.1rem; margin-top: 20px; padding: 0; padding-left: 5px; }
-        .box .box__description ul li { margin: 8px 0; padding: 0 }
-        .box .box__description ul small { font-size: .8em; color: #339933; margin-left: 10px }
-        .box .box__description ul li a { text-decoration: none; color: #333333; }
-        .box .box__description ul li a:hover { color: #CCCCCC }
-        .box .box__description ul li a:hover small { color: inherit }
-
-        @media(max-width:770px) {
-            .box { width: 350px; }
-            .box .box__description .box__description-container { width: 300px; }
-            .box .box__description .box__description-container .box__description-title { font-size: 19px; }
-            .box .box__description .box__description-container .box__description-text { font-size: 15px; }
-            .box .box__description h3 { font-size: 16px; }
-        }
-	    /* 悬停添加箭头图标 */
-   .niceButton5 {
-        display: inline-block;
-        border-radius: 20px;
-        background-color: #f4511e;
-        border: none;
-        color: #ffff;
-        text-align: center;
-        font-size: 28px;
-        font-weight: 400;
-        padding: 18px;
-        width: 200px;
-        transition: all 0.5s;
-        cursor: pointer;
-        margin: 5px;
-        vertical-align: middle;
-      }
-      .niceButton5 span {
-        cursor: pointer;
-        display: inline-block;
-        position: relative;
-        transition: 0.5s;
-      }
-      .niceButton5 span::after {
-        content: ">";
-        position: absolute;
-        opacity: 0;
-        top: 0;
-        right: -20px;
-        transition: 0.5s;
-      }
-      .niceButton5:hover span {
-        padding-right: 30px;
-      }
-      .niceButton5:hover span::after {
-        opacity: 1;
-        right: 0;
-      }
-    </style>
+<title>跳转中..</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="renderer" content="webkit">
+<meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
+<style>
+body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.42857143;color:#333;background-color:#fff;margin:0}
+*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+.box{left:50%;top:30%;width:300px;margin-left:-150px;height:200px;bottom:10px;padding:10px;word-break:break-all;position:fixed}
+.logo{text-align:center;margin-bottom:20px}
+.tip{text-align:center;margin-bottom:15px;letter-spacing:1px}
+.progress{height:20px;margin-bottom:20px;overflow:hidden;background-color:#f5f5f5;border-radius:4px;-webkit-box-shadow:inset 0 1px 2px rgba(0,0,0,.1);box-shadow:inset 0 1px 2px rgba(0,0,0,.1);height:8px}
+.progress-bar{float:left;width:0%;height:100%;font-size:12px;line-height:20px;color:#fff;text-align:center;background-color:#337ab7;-webkit-box-shadow:inset 0 -1px 0 rgba(0,0,0,.15);box-shadow:inset 0 -1px 0 rgba(0,0,0,.15);-webkit-transition:width .6s ease;-o-transition:width .6s ease;transition:width .6s ease}
+.progress-bar-success{background-color:#5cb85c}
+</STYLE>
 </head>
 <body>
-    <div class="box">
-        <div class="box__description">
-            <div class="box__description-container">
-                <h1 class="box__description-title">XLB最新网址和域名</h1>
-                <div class="box__description-text">最近域名被封,点击以下备用地址</div>
-                <ul>
-                    <li>
-                        <a href="https://xlbbbs.com">
-                            永久地址(会封)
-                        </a>
-                        <small><time>永久</time></small>
-	<button class="niceButton5"><span>1111</span></button>
-
-
-                    </li>
-                    <li>
-                        <a href="https://xlbapp191284b034af0.homes">
-                            APP专用1
-                        </a>
-                        <small><time>可用</time></small>
-                    </li>
-                    <li>
-                        <a href="https://xlbapp20f7987d1201e.homes">
-                            APP专用2
-                        </a>
-                        <small><time>可用</time></small>
-                    </li>
-					<li>
-                        <a href="https://xlbapp2192674c7de30.homes">
-                            APP专用3
-                        </a>
-                        <small><time>可用</time></small>
-                    </li>
-                </ul>
-                <h3>获取最新地址：</h3>
-                <ul>
-                    <li>
-                       邮箱发任意内容到xlbbbs@pm.me获取最新地址
-                        <small><time>牢记</time></small>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+<div class="box">
+	<div class="logo">
+		<img src="tz.gif" width="100">
+	</div>
+	<div class="tip">
+		<small>
+		<div class="ipinfo">
+			<b id="cip"></b><span id="cname"></span>
+		</div>
+		<div>
+			跳转中...
+		</div>
+		<div>
+			系统正在自动为您分配可用渠道
+		</div>
+		<hr>
+		<div>
+			如加载不动 <b><a href="https://xlbapp191284b034af0.homes/">请点击这里手动跳转</a></b>
+		</div>
+		</small>
+	</div>
+	<div class="progress">
+		<div id="progress-bar" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+		</div>
+	</div>
+</div>
+<script>
+var url='https://xlbapp191284b034af0.homes/';
+function progress(p){document.getElementById("progress-bar").style.width=p+"%"}
+setTimeout(function(){progress("3");setTimeout(function(){progress("60");setTimeout(function(){progress("95");window.location.href=url;},600);},800);},300);
+</script>
 </body>
 </html>
