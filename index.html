@@ -1,56 +1,108 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="zh-CN">
 <head>
-<title>跳转中..</title>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
-<meta name="renderer" content="webkit">
-<meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="referrer" content="no-referrer">
+<title>入口可用检测</title>
 <style>
-body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.42857143;color:#333;background-color:#fff;margin:0}
-*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
-.box{left:50%;top:30%;width:300px;margin-left:-150px;height:200px;bottom:10px;padding:10px;word-break:break-all;position:fixed}
-.logo{text-align:center;margin-bottom:20px}
-.tip{text-align:center;margin-bottom:15px;letter-spacing:1px}
-.progress{height:20px;margin-bottom:20px;overflow:hidden;background-color:#f5f5f5;border-radius:4px;-webkit-box-shadow:inset 0 1px 2px rgba(0,0,0,.1);box-shadow:inset 0 1px 2px rgba(0,0,0,.1);height:8px}
-.progress-bar{float:left;width:0%;height:100%;font-size:12px;line-height:20px;color:#fff;text-align:center;background-color:#337ab7;-webkit-box-shadow:inset 0 -1px 0 rgba(0,0,0,.15);box-shadow:inset 0 -1px 0 rgba(0,0,0,.15);-webkit-transition:width .6s ease;-o-transition:width .6s ease;transition:width .6s ease}
-.progress-bar-success{background-color:#5cb85c}
-</STYLE>
+:root {
+  --background: #f6f7fa;
+  --text: #191b21;
+  --muted: #616777;
+  --line: #e7e9ee;
+  --accent: #ff3158;
+  --accent-text: #b5183d;
+  font: 16px "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--background); color: var(--text); }
+main { max-width: 31rem; margin: auto; padding: 2.25rem 1rem; }
+@supports (padding: env(safe-area-inset-top)) {
+  main { padding-top: calc(2.25rem + env(safe-area-inset-top)); padding-bottom: calc(2.25rem + env(safe-area-inset-bottom)); }
+}
+h1 { margin: 0; font-size: 1.85rem; letter-spacing: -.025em; }
+h1::before { content: ""; display: block; width: 2rem; height: 4px; border-radius: 4px; margin-bottom: .85rem; background: var(--accent); }
+p { margin: .6rem 0 1rem; color: var(--muted); line-height: 1.55; }
+#summary { margin: 1.4rem 0 .7rem; font-size: .875rem; }
+ul { list-style: none; margin: 0; padding: 0; }
+li + li { margin-top: .65rem; }
+a {
+  display: flex; align-items: center; justify-content: space-between;
+  min-height: 64px; padding: .8rem .95rem;
+  border: 1px solid var(--line); border-radius: .85rem;
+  background: #fff; color: inherit; text-decoration: none;
+  box-shadow: 0 3px 10px rgba(25,27,33,.04);
+}
+a > span:first-child { font-weight: 650; }
+a::after { content: ""; width: .42rem; height: .42rem; margin-left: .6rem; border: solid var(--accent-text); border-width: 2px 2px 0 0; transform: rotate(45deg); }
+a:active { border-color: var(--accent); background: #fff5f7; }
+.state { margin-left: auto; padding: .3rem .55rem; border-radius: 1rem; background: #f0f2f6; color: #555d70; font-size: .8rem; text-align: right; }
+.state.ok { background: #eaf8f1; color: #17623e; }
+button { display: block; width: 100%; min-height: 46px; margin-top: 1rem; border: 1px solid #ffb7c5; border-radius: .7rem; background: #fff0f3; color: var(--accent-text); font: inherit; font-weight: 650; }
+button[hidden] { display: none; }
+button:disabled { opacity: .65; }
+a:focus, button:focus { outline: 2px solid var(--accent-text); outline-offset: 3px; }
+small { font-size: .8rem; }
+</style>
 </head>
 <body>
-<div class="box">
-	<div class="logo">
-		<img src="/tz.gif" width="100">
-	</div>
-	<div class="tip">
-		<small>
-		<div class="ipinfo">
-			<b id="cip"></b><span id="cname"></span>
-		</div>
-		<div>
-			自动跳转中...
-		</div>
-		<div>
-			<b>如自动跳转的不能访问可以点击下方</b>
-		</div>
-		<hr>
-		<div>
-			手动加载新地址1 <b><a href="https://xlbap61.skin/">请点击这里跳转</a></br>
-			手动加载新地址2 <b><a href="https://xlbap62.skin/">请点击这里跳转</a></br>
-			手动加载新地址3 <b><a href="https://xlbap63.skin/">请点击这里跳转</a></br>
-		</div>
-		</small>
-	</div>
-	<div class="progress">
-		<div id="progress-bar" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:0%">
-		</div>
-	</div>
-</div>
+<main>
+<h1>入口可用检测</h1>
+<p>检测在当前设备上进行。点击任一入口进入。</p>
+<p id="summary" role="status">可以直接选择入口。</p>
+<ul id="routes">
+<li><a href="https://xlbap64.skin/"><span>入口 1</span><span class="state">未检测</span></a></li>
+<li><a href="https://xlbap61.skin/"><span>入口 2</span><span class="state">未检测</span></a></li>
+<li><a href="https://xlbap62.skin/"><span>入口 3</span><span class="state">未检测</span></a></li>
+<li><a href="https://xlbap63.skin/"><span>入口 4</span><span class="state">未检测</span></a></li>
+</ul>
+<button type="button" id="retry" hidden>重新检测</button>
+<p><small>检测超时的入口仍可手动尝试。如全部入口都不可用，请使用 VPN 后重试。各地区和网络运营商的限制不同，部分地区可能无法访问，敬请谅解。</small></p>
+<noscript><p>自动检测需要 JavaScript。上面的链接仍可直接打开。</p></noscript>
+</main>
 <script>
-var url='https://xlbap64.skin/';
-function progress(p){document.getElementById("progress-bar").style.width=p+"%"}
-setTimeout(function(){progress("3");setTimeout(function(){progress("60");setTimeout(function(){progress("95");window.location.href=url;},600);},800);},300);
+(function () {
+  var links = Array.from(document.querySelectorAll('#routes a'));
+  var retry = document.getElementById('retry');
+  var summary = document.getElementById('summary');
+  function probe(link, nonce) {
+    var status = link.querySelector('.state');
+    status.className = 'state';
+    status.textContent = '检测中';
+    return new Promise(function (resolve) {
+      var image = new Image();
+      var start = performance.now();
+      var timer = setTimeout(function () { finish('检测超时', false); }, 6500);
+      function finish(label, ok) {
+        clearTimeout(timer);
+        image.onload = image.onerror = null;
+        status.className = ok ? 'state ok' : 'state';
+        status.textContent = label;
+        resolve(ok);
+      }
+      image.referrerPolicy = 'no-referrer';
+      image.onload = function () {
+        finish('可使用 · ' + Math.round(performance.now() - start) + ' ms', true);
+      };
+      image.onerror = function () { finish('不可用', false); };
+      image.src = new URL('/favicon.ico?xlb_check=' + nonce, link.href).href;
+    });
+  }
+  function check() {
+    retry.disabled = true;
+    summary.textContent = '正在并行检测 ' + links.length + ' 个入口…';
+    var nonce = Date.now() + '-' + Math.random().toString(36).slice(2);
+    Promise.all(links.map(function (link) { return probe(link, nonce); })).then(function (results) {
+      var available = results.filter(Boolean).length;
+      summary.textContent = available ? available + ' 个入口可使用，请选择。' : '本次未检测到可使用的入口。检测超时的入口仍可手动尝试。';
+      retry.disabled = false;
+    });
+  }
+  retry.hidden = false;
+  retry.addEventListener('click', check);
+  check();
+}());
 </script>
 </body>
 </html>
-														  
