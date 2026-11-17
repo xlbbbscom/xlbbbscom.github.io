@@ -44,6 +44,11 @@ button[hidden] { display: none; }
 button:disabled { opacity: .65; }
 a:focus, button:focus { outline: 2px solid var(--accent-text); outline-offset: 3px; }
 small { font-size: .8rem; }
+.address-help { margin-top: 1.4rem; padding: 1rem; border: 1px solid #ffb7c5; border-radius: .85rem; background: #fff0f3; }
+.address-help h2 { margin: 0 0 .45rem; color: var(--accent-text); font-size: 1rem; }
+.address-help p { margin: 0; color: var(--text); font-size: .9rem; }
+.address-help a { display: inline; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; color: var(--accent-text); text-decoration: underline; }
+.address-help a::after { content: none; }
 </style>
 </head>
 <body>
@@ -60,6 +65,10 @@ small { font-size: .8rem; }
 <button type="button" id="retry" hidden>重新检测</button>
 <p><small>检测超时的入口仍可手动尝试。如全部入口都不可用，请使用 VPN 后重试。各地区和网络运营商的限制不同，部分地区可能无法访问，敬请谅解。</small></p>
 <noscript><p>自动检测需要 JavaScript。上面的链接仍可直接打开。</p></noscript>
+<section class="address-help" aria-labelledby="address-help-title">
+  <h2 id="address-help-title">获取网页版最新地址</h2>
+  <p><strong>发邮件到 <a href="mailto:xlbbbs@pm.me">xlbbbs@pm.me</a> 获取最新地址，如收不到请看垃圾箱。</strong></p>
+</section>
 </main>
 <script>
 (function () {
